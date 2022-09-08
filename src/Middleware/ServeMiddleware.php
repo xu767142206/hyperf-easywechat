@@ -33,8 +33,8 @@ class ServeMiddleware implements MiddlewareInterface
     {
         $response = $handler->handle($request);
         $psrResponse = Context::get(PsrResponseInterface::class);
-        $psrResponse = $psrResponse->withBody(new SwooleStream($response->getContent()))->withStatus($response->getStatusCode());
-        foreach ($response->headers->all() as $key => $item) {
+        $psrResponse = $psrResponse->withBody($response->getBody())->withStatus($response->getStatusCode());
+        foreach ($response->getHeaders() as $key => $item) {
             $psrResponse = $psrResponse->withHeader($key, $item);
         }
         return $psrResponse;

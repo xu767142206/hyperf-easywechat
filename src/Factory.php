@@ -90,7 +90,8 @@ class Factory
      * time:16:44
      * auth：xyc
      */
-    public function __call(string $functionName, array $args)
+    public function __call(string $functionName, array $args):
+    \EasyWeChat\OfficialAccount\Application|\EasyWeChat\Work\Application|\EasyWeChat\MiniApp\Application|\EasyWeChat\Pay\Application|\EasyWeChat\OpenPlatform\Application|\EasyWeChat\OpenWork\Application
     {
         //验证方法
         if (!isset($this->configMap[$functionName])) {
@@ -108,7 +109,7 @@ class Factory
         //实例化
         $app = new $this->classMap[$functionName]($config);
 
-        /** 是我不配  不折腾了 http客户端需要重写 Symfony\Contracts\HttpClient */
+        /** 是我不配  不折腾了 http客户端需要重写 Symfony\Contracts\HttpClient  反正有hook*/
 //        //http客户端
 //        $config = $app->getConfig()->get('http', []);
 //        $config['handler'] = HandlerStack::create(new CoroutineHandler());

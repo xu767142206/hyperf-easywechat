@@ -26,7 +26,8 @@ use Hyperf\Utils\ApplicationContext;
  */
 class EasyWechat
 {
-    public static function __callStatic(string $functionName, array $args)
+    public static function __callStatic(string $functionName, array $args):
+    \EasyWeChat\OfficialAccount\Application|\EasyWeChat\Work\Application|\EasyWeChat\MiniApp\Application|\EasyWeChat\Pay\Application|\EasyWeChat\OpenPlatform\Application|\EasyWeChat\OpenWork\Application
     {
         return ApplicationContext::getContainer()->get(Factory::class)->{$functionName}(...$args);
     }
