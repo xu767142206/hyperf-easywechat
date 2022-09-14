@@ -53,4 +53,5 @@ class ActionBase
     {
         return $this->api->getApplication()->getAccessToken();
     }
+
 }

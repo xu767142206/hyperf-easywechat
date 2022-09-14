@@ -9,6 +9,7 @@ use EasyWeChat\MiniApp\Application as MiniApp;
 use EasyWeChat\Pay\Application as Pay;
 use EasyWeChat\OpenPlatform\Application as OpenPlatform;
 use EasyWeChat\OpenWork\Application as OpenWork;
+use Hyperf\Easywechat\OfficialAccount\Menu\Menu;
 use Hyperf\Easywechat\OfficialAccount\OfficialAccountApi;
 use Hyperf\Easywechat\OfficialAccount\OpenApi\OpenApi;
 use Hyperf\Utils\ApplicationContext;
@@ -16,6 +17,7 @@ use Hyperf\Utils\ApplicationContext;
 /**
  * Class Api
  * @property-read OpenApi openApi
+ * @property-read Menu menu 自定义菜单（兼容个性化菜单）
  * @package Hyperf\Easywechat
  */
 class Api
